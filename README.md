@@ -1,4 +1,3 @@
-A hands-on platform that ties **policy → controls → automated evidence → residual risk analytics**.
 # In-House GRC Engineering Platform
 
 A hands-on platform that ties **policy → controls → automated evidence → residual risk analytics**.
