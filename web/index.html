@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GRC Engineering Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>GRC Engineering Platform</h1>
+    <p>Policy → Controls → Evidence → Coverage/Effectiveness → Residual Risk</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Coverage (by domain)</h2>
+      <div id="coverage-domain" class="grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Effectiveness (by domain)</h2>
+      <div id="effectiveness-domain" class="grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Residual Risk (by system)</h2>
+      <div id="residual-summary" class="grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Top Risks</h2>
+      <table id="risks-table">
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Risk ID</th>
+            <th>Asset</th>
+            <th>Threat</th>
+            <th>Inherent</th>
+            <th>Mitigation</th>
+            <th>Residual</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <small>Generated from /dist JSON artifacts</small>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
