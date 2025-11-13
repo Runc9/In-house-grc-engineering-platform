@@ -1,0 +1,6 @@
+ccc_id,title,objective,domain,control_type
+CCC-AC-01,Account Management,Approve/provision/deprovision accounts and roles,Access,Prevent
+CCC-AC-02,Least Privilege,Restrict permissions to minimum necessary,Access,Prevent
+CCC-CM-01,Change Approval,Ensure peer/owner reviews before prod changes,Change Mgmt,Detect
+CCC-LOG-01,Centralized Logging,Aggregate and retain security logs with integrity,Logging,Detect
+CCC-CR-01,Cryptographic Protection,Protect data in transit/at rest using approved crypto,Encryption,Prevent

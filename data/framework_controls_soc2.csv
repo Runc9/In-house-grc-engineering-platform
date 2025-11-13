@@ -1,0 +1,6 @@
+fw,fw_id,title,domain
+SOC2,CC6.2,Restrict logical access to authorized users,Access
+SOC2,CC6.1,Role-based access and least privilege,Access
+SOC2,CC7.2,Change management controls,Change Mgmt
+SOC2,CC7.3,Logging and monitoring,Logging
+SOC2,CC8.1,Encryption and key management,Encryption

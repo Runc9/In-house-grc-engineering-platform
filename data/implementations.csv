@@ -1,0 +1,6 @@
+impl_id,ccc_id,system,owner,implementation_desc,evidence_uri,test_freq,last_test_result,control_effectiveness
+IMPL-001,CCC-AC-01,Payments,SecOps,"JIT access with ticketed approvals","evidence/iam_review_q3.pdf",quarterly,pass,0.85
+IMPL-002,CCC-AC-02,Payments,SecOps,"IAM policy linter in CI + break-glass","evidence/iam_lint_attest.json",daily,pass,0.75
+IMPL-003,CCC-CM-01,Payments,DevOps,"PR approvals + signed deployments","evidence/pr_policy.png",daily,pass,0.90
+IMPL-004,CCC-LOG-01,Payments,Platform,"Central log aggregation with WORM storage","evidence/log_retention.json",weekly,pass,0.80
+IMPL-005,CCC-CR-01,Payments,Platform,"TLS 1.2+, KMS-backed at-rest encryption","evidence/kms_config.json",monthly,pass,0.88

@@ -1,0 +1,5 @@
+risk_id,asset_id,threat,likelihood_inherent,impact_inherent,notes
+R-001,PaymentsDB,Credential misuse,4,5,"High-value target"
+R-002,PaymentsAPI,Unauthorized change,3,5,"Prod outage/regulatory"
+R-003,PaymentsLogs,Log tampering,3,4,"Chain-of-custody risk"
+R-004,PaymentsData,Data exfiltration,2,5,"PII/PCI exposure"

@@ -1,0 +1,6 @@
+fw,fw_id,title,domain
+ISO27001,A.5.18,Access rights,Access
+ISO27001,A.5.15,Least privilege,Access
+ISO27001,A.8.3,Change management,Change Mgmt
+ISO27001,A.8.15,Logging,Logging
+ISO27001,A.8.24,Use of cryptography,Encryption

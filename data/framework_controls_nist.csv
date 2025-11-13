@@ -1,0 +1,6 @@
+fw,fw_id,title,domain
+NIST,AC-2,Account Management,Access
+NIST,AC-6,Least Privilege,Access
+NIST,CM-3,Configuration Change Control,Change Mgmt
+NIST,AU-12,Audit Record Generation,Logging
+NIST,SC-13,Cryptographic Protection,Encryption
