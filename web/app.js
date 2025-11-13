@@ -27,9 +27,10 @@ function levelBadge(level) {
 
 async function main() {
   // NOTE: We fetch from ../dist because index.html is inside /web
-  const coverage = await loadJSON('../dist/coverage.json').catch(() => null);
-  const effectiveness = await loadJSON('../dist/effectiveness.json').catch(() => null);
-  const residual = await loadJSON('../dist/residual.json').catch(() => null);
+  const coverage = await loadJSON('dist/coverage.json').catch(() => null);
+const effectiveness = await loadJSON('dist/effectiveness.json').catch(() => null);
+const residual = await loadJSON('dist/residual.json').catch(() => null);
+
 
   // Coverage by domain
   if (coverage) {
