@@ -3,6 +3,11 @@ from typing import Dict, List, Tuple
 from utils import write_json
 from load import load_all
 
+# Residual Risk Floor
+# Even with strong controls, there is always some level of remaining uncertainty.
+# This prevents residual risk from unrealistically becoming zero.
+RESIDUAL_FLOOR_PERCENT = 0.05  # 5% floor
+
 def risk_bucket(score: float) -> str:
     if score <= 4:
         return "Low"
@@ -72,7 +77,16 @@ def compute_residual():
         inherent = likelihood * impact
 
         mit = float(sys_mit.get(system, 0.0))
-        residual = round(inherent * (1.0 - mit), 3)
+        raw_residual = inherent * (1.0 - mit)
+
+        # Apply residual risk floor: even with strong controls, some risk always remains.
+        if inherent > 0:
+            floor = inherent * RESIDUAL_FLOOR_PERCENT
+            residual_value = max(raw_residual, floor)
+        else:
+            residual_value = 0.0
+
+        residual = round(residual_value, 3)
         bucket = risk_bucket(residual)
 
         entry = {
@@ -91,11 +105,14 @@ def compute_residual():
         risks_out.setdefault(system, []).append(entry)
 
     # Also provide a per-system summary
-    summary = {}
+    summary: Dict[str, Dict[str, float]] = {}
     for system, items in risks_out.items():
         total = len(items)
         avg_res = round(sum(x["residual_risk"] for x in items) / total, 3) if total else 0.0
-        max_level = max(items, key=lambda x: ["Low","Medium","High","Critical"].index(x["risk_level"]))["risk_level"] if items else "Low"
+        max_level = max(
+            items,
+            key=lambda x: ["Low", "Medium", "High", "Critical"].index(x["risk_level"])
+        )["risk_level"] if items else "Low"
         summary[system] = {
             "combined_mitigation": float(sys_mit.get(system, 0.0)),
             "risks": total,
