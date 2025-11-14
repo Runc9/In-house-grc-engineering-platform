@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>GRC Engineering Dashboard</title>
+  <title>GRC Engineering Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="%234ea1ff"/><text x="32" y="39" text-anchor="middle" font-size="32" fill="white">G</text></svg>'>
 </head>
 <body>
   <header>
@@ -13,6 +14,24 @@
   </header>
 
   <main>
+    <!-- Visual overview -->
+    <section class="card">
+      <h2>Visual Overview</h2>
+      <div class="charts-grid">
+        <div>
+          <h3>Coverage by Domain</h3>
+          <div id="coverage-bars" class="bar-chart"></div>
+        </div>
+        <div>
+          <h3>Effectiveness by Domain</h3>
+          <div id="effectiveness-bars" class="bar-chart"></div>
+        </div>
+      </div>
+      <h3>Domain Donuts</h3>
+      <div id="domain-donuts" class="donut-grid"></div>
+    </section>
+
+    <!-- Existing high level cards -->
     <section class="card">
       <h2>Coverage (by domain)</h2>
       <div id="coverage-domain" class="grid"></div>
@@ -28,6 +47,65 @@
       <div id="residual-summary" class="grid"></div>
     </section>
 
+    <!-- System risk heatmap -->
+    <section class="card">
+      <h2>System Risk Heatmap</h2>
+      <table id="risk-heatmap">
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Low</th>
+            <th>Medium</th>
+            <th>High</th>
+            <th>Critical</th>
+            <th>Avg Residual</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Control drill-down + gaps -->
+    <section class="card">
+      <h2>Control Drill-down</h2>
+      <p class="muted">
+        Canonical controls mapped to frameworks with coverage & effectiveness. Sortable by domain.
+      </p>
+      <table id="controls-table">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>CCC ID</th>
+            <th>Title</th>
+            <th>Coverage</th>
+            <th>Effectiveness</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Gap Analysis (Controls below target)</h2>
+      <p class="muted">
+        Controls where coverage or effectiveness is below target thresholds (default: 80%).
+      </p>
+      <table id="gaps-table">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>CCC ID</th>
+            <th>Title</th>
+            <th>Coverage</th>
+            <th>Effectiveness</th>
+            <th>Gap Type</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Top risks from residual.json -->
     <section class="card">
       <h2>Top Risks</h2>
       <table id="risks-table">
@@ -41,6 +119,29 @@
             <th>Mitigation</th>
             <th>Residual</th>
             <th>Level</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- CSV upload demo -->
+    <section class="card">
+      <h2>Upload Risk Register CSV (Client-side)</h2>
+      <p class="muted">
+        Upload a <code>risk_register.csv</code>-style file to preview it in the browser
+        (this does not change the backend JSON; it is for experimentation and demos).
+      </p>
+      <input type="file" id="csv-upload" accept=".csv" />
+      <table id="csv-preview-table">
+        <thead>
+          <tr>
+            <th>risk_id</th>
+            <th>asset_id</th>
+            <th>threat</th>
+            <th>likelihood_inherent</th>
+            <th>impact_inherent</th>
+            <th>notes</th>
           </tr>
         </thead>
         <tbody></tbody>
