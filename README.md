@@ -1,4 +1,4 @@
-# **GRC Engineering Platform — Continuous Compliance & Risk Analytics**
+# **GRC Engineering Platform - Continuous Compliance & Risk Analytics**
 
 [![Status](https://img.shields.io/badge/status-active-success?style=flat-square)](#)
 [![Focus](https://img.shields.io/badge/focus-GRC%20Engineering-4ea1ff?style=flat-square)](#)
